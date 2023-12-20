@@ -1,0 +1,16 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: admin-user
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  # Kubernetes 預設就幫我們建立了 cluster-admin 這個 role, 所以我們就不用再自己另外建立, 直接使用即可
+  name: cluster-admin
+subjects:
+- kind: ServiceAccount
+  name: admin-user
+  namespace: kubernetes-dashboard
+
+# 目的是綁定系統預設的 cluster role和我們創造的service account admin-user 
+# 這樣 admin-user  就可以擁有該 cluster role 的權限
