@@ -5,7 +5,7 @@ metadata:
   namespace: ns-for-demo
 subjects:
 - kind: User
-  name: CY
+  name: chenyang
   apiGroup: rbac.authorization.k8s.io
 roleRef:
   kind: Role
